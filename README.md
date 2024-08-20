@@ -81,6 +81,7 @@ The project integrates the Upstage API in the following sections:
 ![](image/screenshot-1724071729067.png)
 ![](image/screenshot-1724071826835.png)
 ![](image/screenshot-1724071843199.png)
+![](image/screenshot-1724071851249.png)
 ![](image/screenshot-1724071864350.png)
 
 ## Project GitHub Repository
