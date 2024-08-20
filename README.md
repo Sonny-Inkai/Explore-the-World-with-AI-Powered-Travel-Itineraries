@@ -59,7 +59,7 @@ The project integrates the Upstage API in the following sections:
 - **Chat Completion**: The Upstage API is utilized in the `chatCompletion` function located in `src/service/solarLLM.js`. This function sends user input and search results to the Upstage API for ranking and optimizing the travel itinerary.
 
   ```javascript
-import OpenAI from 'openai';
+  import OpenAI from 'openai';
 
 const upsage_api = import.meta.env.VITE_REACT_APP_UPSTAGE_API_KEY;
 const openai = new OpenAI({
@@ -106,7 +106,6 @@ export const chatCompletion = async (userInput, searchResults) => {
     throw error;
   }
 };
-  };
   ```
 
 - **Backend Communication**: The frontend communicates with the backend API to fetch search results, which are then processed and ranked using the Upstage API before being displayed to the user.
