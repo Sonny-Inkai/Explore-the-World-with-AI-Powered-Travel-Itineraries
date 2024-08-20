@@ -50,17 +50,17 @@ def hybrid_search():
     try:
         data = request.json
         location = data.get('location', '')
-        days = int(data.get('days'))  # Ensure days is converted to an integer
-        budget = data.get('budget')  # Leave budget as string if it's categorical
-        companions = data.get('companions')  # Leave companions as string if it's categorical
+        days = int(data.get('days'))
+        budget = data.get('budget')  
+        companions = data.get('companions')  
         description = data.get('description', '')
 
         prompt = "Find the best travel destinations with the following criteria:"
         query = f"{prompt} Location: {location}, Description: {description}, Days: {days}, Budget: {budget}, Companions: {companions}"
 
-        hotels = full_text_search(query, category='hotel', limit=6)
-        restaurants = full_text_search(query, category='restaurant', limit=days+5)
-        attractions = full_text_search(query, category='attraction', limit=days+5)
+        hotels = full_text_search(query, category='hotel', limit=3)
+        restaurants = full_text_search(query, category='restaurant', limit=days)
+        attractions = full_text_search(query, category='attraction', limit=days)
 
         combined_results = {
             'hotels': convert_to_json_serializable(hotels),
