@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaMapMarkerAlt, FaDollarSign, FaUsers, FaClipboardList } from 'react-icons/fa';
 import './CreateTrip.css';
+import { chatCompletion } from '@/service/solarLLM';
 
 const budgetOptions = [
   { value: 'cheap', label: 'Cheap', description: 'Stay conscious of costs', icon: '💸' },
   { value: 'moderate', label: 'Moderate', description: 'Keep cost on the average side', icon: '💰' },
-  { value: 'luxury', label: 'Luxury', description: 'Don\'t worry about cost', icon: '💵' },
+  { value: 'luxury', label: 'Luxury', description: "Don't worry about cost", icon: '💵' },
 ];
 
 const companionOptions = [
@@ -49,7 +50,7 @@ function CreateTrip() {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/hybrid-search', {
+      const searchResponse = await fetch('http://localhost:5000/api/hybrid-search', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -57,13 +58,9 @@ function CreateTrip() {
         body: JSON.stringify(tripData),
       });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+      const searchResults = await searchResponse.json();
 
-      const result = await response.json();
-      console.log(result);
-      navigate('/view-trip', { state: { results: result } });
+      navigate('/view-trip', { state: { results: searchResults } });
     } catch (error) {
       console.error('Error fetching search results:', error);
       setError('Error fetching search results');
