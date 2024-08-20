@@ -74,6 +74,14 @@ The project integrates the Upstage API in the following sections:
   ```
 
 - **Backend Communication**: The frontend communicates with the backend API to fetch search results, which are then processed and ranked using the Upstage API before being displayed to the user.
+- 
+
+## Appendix
+![](image/screenshot-1724071680347.png)
+![](image/screenshot-1724071729067.png)
+![](image/screenshot-1724071826835.png)
+![](image/screenshot-1724071843199.png)
+![](image/screenshot-1724071864350.png)
 
 ## Project GitHub Repository
 
